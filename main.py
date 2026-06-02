@@ -1,14 +1,11 @@
-
+print("hola bienvenido a la segunda version del juego mas chafa que te puedas imaginar")
 
 while True:
- jugar = int(input(("""Bienvenido al juego que humilla a GTA 5, Elden Ring y Red Dead Redemption 2, entre otros:
-
-1. Jugar
-2. No, gracias\n
-""")))
+ jugar = int(input("¿quieres jugar? 1.si  2.no"))
  
  if jugar == 1:
-     import mapa
-     mapa.sala1()
+      #futura funcion para jugar
+      a = 5 
  elif jugar == 2:
-     break
+      print("entiendo que no quieras ¿quien querria?")
+      

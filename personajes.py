@@ -1,4 +1,3 @@
-import sys
 import time
 
 #clase de los personajes
@@ -49,18 +48,8 @@ class personaje:
         
         
 
-        
-    
-        
-    
-        
-                
-#persoanjes
 
-mi_personaje = personaje(input("ingresa tu nombre: "),4,10,1)
-lobo_fuego = personaje("Lobo fuego",4,10,1)
-oso_electrico = personaje("oso electrico",5,12,2)
-nicolas_maduro = personaje("nicolas maduro",6,14,3)
+
 
 #funcion de pelea
 def pelea(peleador_jugador,peleador_npc):
@@ -77,6 +66,3 @@ def pelea(peleador_jugador,peleador_npc):
      print("\nel enmigo te ha atacado")
      if peleador_jugador.vida <= 0:
        peleador_jugador.morir()
-     
-    
-     
