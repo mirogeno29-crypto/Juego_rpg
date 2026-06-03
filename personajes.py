@@ -52,17 +52,3 @@ class personaje:
 
 
 #funcion de pelea
-def pelea(peleador_jugador,peleador_npc):
-    while True:
-     
-     peleador_jugador.Mostrar_atributos()
-     print("\nhas atacado al enemigo")
-     time.sleep(4)
-     peleador_jugador.atacar(peleador_npc)
-     if  peleador_npc.vida <=0:
-         print("\nhas ganado")
-         break
-     peleador_npc.atacar(peleador_jugador)
-     print("\nel enmigo te ha atacado")
-     if peleador_jugador.vida <= 0:
-       peleador_jugador.morir()

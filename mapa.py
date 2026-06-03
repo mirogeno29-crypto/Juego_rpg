@@ -13,27 +13,50 @@ personajes_creados = {
 
 def arranque_juego():
     personajes_creados["mi_personaje"] = creacion_mi_personaje()
+    sala1()
     
 
-def direncion():
-    elegir_direccion = input(int("""te encuentras en una cueva con solo dos puertas una a la derecha y otra a la izquierda
+def direncion(sala_derecha,sala_izquierda):
+    elegir_direccion = int(input("""te encuentras en una cueva con solo dos puertas una a la derecha y otra a la izquierda
     1. ir a la derecha
     2. ir a la izquierda"""))
     
-    return elegir_direccion
+    if elegir_direccion == 1:
+        sala_derecha()
+    elif elegir_direccion == 2:
+        sala_izquierda()
+    
+
+def sala0():
+     if personajes_creados["mi_personaje"].inventario["pepitas de oro"] == 3:
+         print("has ganado el juego")
+     else:
+         print("necesitas 3 pepitas de oro para abrir esta puerta")
     
 #salas llenas    
 def sala1():
  print("estas en sala 1")
+ 
  if direncion() == 1:
-     if personajes_creados["mi_personaje"].inventario["pepitas de oro"] == 3:
-         print("has ganado ")
+     sala2()
+ elif direncion() == 2:
+     sala0()
+    
+     
          
      
- 
-
 def sala2():
+    print("estas en sala 2")
+    a =0
+    a +=1
+    if a <=2:
+     print("un lobo de fuego te ataca")    
+     personajes.pelea(personajes_creados["mi_personaje"],personajes_creados["lobo_fuego"])
+     personajes_creados["mi_personaje"].inventario["pepitas de oro"]
+     print("has obtenido una pepita de oro")
+     print("has ganado la batalla")
 
+"""
 def sala3():
 
 def sala4():
@@ -44,3 +67,4 @@ def sala2_vacia():
 def sala3_vacia():
 
 def sala4_vacia():
+"""
