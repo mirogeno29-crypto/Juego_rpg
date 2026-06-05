@@ -30,6 +30,7 @@ def direncion(sala_izquierda,sala_derecha):
      1. ir a la izquierda
      2. ir a la derecha
      3. usar inventario
+     4. ver estadisticas
     
     """))
     
@@ -39,6 +40,8 @@ def direncion(sala_izquierda,sala_derecha):
         sala_derecha()
      elif elegir_direccion == 3:
         mi_personaje.usar_inventario()
+     elif elegir_direccion == 4:
+         mi_personaje.Mostrar_atributos()
     
 
 def sala0():
@@ -62,8 +65,8 @@ def sala2():
     if a <=2:
      print("un lobo de fuego te ataca")    
      personajes.pelea(mi_personaje,lobo_fuego)
-     mi_personaje.inventario["pepitas de oro"]
-     mi_personaje.inventario["posion vida"]
+     mi_personaje.inventario["pepitas de oro"] +=1
+     mi_personaje.inventario["posion vida"] +=1
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      direncion(sala1,sala3)
@@ -78,8 +81,8 @@ def sala3():
     if a <=2:
      print("un oso lectrico te ataca")    
      personajes.pelea(mi_personaje,oso_electrico)
-     mi_personaje.inventario["pepitas de oro"]
-     mi_personaje.inventario["posion vida"]
+     mi_personaje.inventario["pepitas de oro"] +=1
+     mi_personaje.inventario["posion vida"] +=1
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      direncion(sala2,sala4)
@@ -93,20 +96,26 @@ def sala4():
     if a <=2:
      print("nicolas maduro te ataca")    
      personajes.pelea(mi_personaje,nicolas_maduro)
-     mi_personaje.inventario["pepitas de oro"]
-     mi_personaje.inventario["posion vida"]
+     mi_personaje.inventario["pepitas de oro"] +=1
+     mi_personaje.inventario["posion vida"] +=1
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      while True:
-      puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario"))
+      puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario 3.ver atributos"))
       if puerta == 1:
           sala3()
       elif puerta ==2:
           mi_personaje.usar_inventario()
+      elif puerta ==3:
+          mi_personaje.Mostrar_atributos
+          
     elif a>=2:
-     while True:
-      puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario"))
-      if puerta == 1:  
-          sala3()    
-     
+      while True:
+       puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario 3.ver atributos"))
+       if puerta == 1:
+          sala3()
+       elif puerta ==2:
+          mi_personaje.usar_inventario()
+       elif puerta ==3:
+          mi_personaje.Mostrar_atributos
     
