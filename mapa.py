@@ -1,70 +1,112 @@
 import personajes
 
+
 def creacion_mi_personaje():
     mi_personaje = personajes.personaje(input("ingresa tu nombre: "),4,10,1)
     return mi_personaje
 
 
-personajes_creados = {
-"lobo_fuego" : personajes.personaje("Lobo fuego",4,10,1),
-"oso_electrico" : personajes.personaje("oso electrico",5,12,2),
-"nicolas_maduro" : personajes.personaje("nicolas maduro",6,14,3),}
 
+def fin_juego():
+    #futura exepcion para salir del juego
+    print("FIN DE JUEGO")
 
 def arranque_juego():
-    personajes_creados["mi_personaje"] = creacion_mi_personaje()
+    global lobo_fuego
+    global oso_electrico
+    global nicolas_maduro
+    global mi_personaje
+    lobo_fuego = personajes.personaje("Lobo fuego",4,10,1)
+    oso_electrico = personajes.personaje("oso electrico",5,12,2)
+    nicolas_maduro = personajes.personaje("nicolas maduro",6,14,3)
+    mi_personaje = creacion_mi_personaje()
+    
     sala1()
     
 
-def direncion(sala_derecha,sala_izquierda):
-    elegir_direccion = int(input("""te encuentras en una cueva con solo dos puertas una a la derecha y otra a la izquierda
-    1. ir a la derecha
-    2. ir a la izquierda"""))
+def direncion(sala_izquierda,sala_derecha):
+    while True:
+     elegir_direccion = int(input("""te encuentras en una cueva con solo dos puertas una a la derecha y otra a la izquierda
+     1. ir a la izquierda
+     2. ir a la derecha
+     3. usar inventario
     
-    if elegir_direccion == 1:
-        sala_derecha()
-    elif elegir_direccion == 2:
+    """))
+    
+     if elegir_direccion == 1:
         sala_izquierda()
+     elif elegir_direccion == 2:
+        sala_derecha()
+     elif elegir_direccion == 3:
+        mi_personaje.usar_inventario()
     
 
 def sala0():
-     if personajes_creados["mi_personaje"].inventario["pepitas de oro"] == 3:
+     if mi_personaje.inventario["pepitas de oro"] == 3:
          print("has ganado el juego")
      else:
          print("necesitas 3 pepitas de oro para abrir esta puerta")
+         sala1()
     
-#salas llenas    
+
 def sala1():
  print("estas en sala 1")
  
- if direncion() == 1:
-     sala2()
- elif direncion() == 2:
-     sala0()
+ direncion(sala0,sala2)
     
-     
-         
-     
+        
 def sala2():
     print("estas en sala 2")
     a =0
     a +=1
     if a <=2:
      print("un lobo de fuego te ataca")    
-     personajes.pelea(personajes_creados["mi_personaje"],personajes_creados["lobo_fuego"])
-     personajes_creados["mi_personaje"].inventario["pepitas de oro"]
+     personajes.pelea(mi_personaje,lobo_fuego)
+     mi_personaje.inventario["pepitas de oro"]
+     mi_personaje.inventario["posion vida"]
+     print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
-     print("has ganado la batalla")
+     direncion(sala1,sala3)
+    elif a >=2:
+        direncion(sala1,sala3)
 
-"""
+
 def sala3():
+    print("estas en sala 3")
+    a =0
+    a +=1
+    if a <=2:
+     print("un oso lectrico te ataca")    
+     personajes.pelea(mi_personaje,oso_electrico)
+     mi_personaje.inventario["pepitas de oro"]
+     mi_personaje.inventario["posion vida"]
+     print("has obtenido una posion de vida")
+     print("has obtenido una pepita de oro")
+     direncion(sala2,sala4)
+    elif a >=2:
+        direncion(sala2,sala4)
 
 def sala4():
-
-#salas vacias
-def sala2_vacia():
-
-def sala3_vacia():
-
-def sala4_vacia():
-"""
+    print("estas en sala 4")
+    a =0
+    a +=1
+    if a <=2:
+     print("nicolas maduro te ataca")    
+     personajes.pelea(mi_personaje,nicolas_maduro)
+     mi_personaje.inventario["pepitas de oro"]
+     mi_personaje.inventario["posion vida"]
+     print("has obtenido una posion de vida")
+     print("has obtenido una pepita de oro")
+     while True:
+      puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario"))
+      if puerta == 1:
+          sala3()
+      elif puerta ==2:
+          mi_personaje.usar_inventario()
+    elif a>=2:
+     while True:
+      puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario"))
+      if puerta == 1:  
+          sala3()    
+     
+    
