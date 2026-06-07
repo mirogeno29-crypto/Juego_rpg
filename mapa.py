@@ -1,4 +1,6 @@
 import personajes
+import exepciones
+import time
 
 
 def creacion_mi_personaje():
@@ -6,7 +8,13 @@ def creacion_mi_personaje():
     return mi_personaje
 
 
-
+varibles_salas = {
+    
+    "sala2": 0,
+    "sala3": 0,
+    "sala4": 0
+    
+}
 
 
 def arranque_juego():
@@ -45,6 +53,9 @@ def direncion(sala_izquierda,sala_derecha):
 def sala0():
      if mi_personaje.inventario["pepitas de oro"] == 3:
          print("has ganado el juego")
+         time.sleep(4)
+         raise exepciones.muertejugador()
+         
      else:
          print("necesitas 3 pepitas de oro para abrir esta puerta")
          sala1()
@@ -58,9 +69,8 @@ def sala1():
         
 def sala2():
     print("estas en sala 2")
-    a =0
-    a +=1
-    if a <=2:
+    varibles_salas["sala2"] +=1
+    if varibles_salas["sala2"] <2:
      print("un lobo de fuego te ataca")    
      personajes.pelea(mi_personaje,lobo_fuego)
      mi_personaje.inventario["pepitas de oro"] +=1
@@ -70,15 +80,14 @@ def sala2():
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      direncion(sala1,sala3)
-    elif a >=2:
+    else:
         direncion(sala1,sala3)
 
 
 def sala3():
     print("estas en sala 3")
-    a =0
-    a +=1
-    if a <=2:
+    varibles_salas["sala3"] +=1
+    if varibles_salas["sala3"] <2:
      print("un oso lectrico te ataca")    
      personajes.pelea(mi_personaje,oso_electrico)
      mi_personaje.inventario["pepitas de oro"] +=1
@@ -88,14 +97,13 @@ def sala3():
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      direncion(sala2,sala4)
-    elif a >=2:
+    else:
         direncion(sala2,sala4)
 
 def sala4():
     print("estas en sala 4")
-    a =0
-    a +=1
-    if a <=2:
+    varibles_salas["sala4"] +=1
+    if  varibles_salas["sala4"] <2:
      print("nicolas maduro te ataca")    
      personajes.pelea(mi_personaje,nicolas_maduro)
      mi_personaje.inventario["pepitas de oro"] +=1
@@ -105,7 +113,12 @@ def sala4():
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      while True:
-      puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario 3.ver atributos"))
+      puerta = int(input("""solo hay una puerta a la izquierda:
+    1.entrar 
+    2.usar inventario 
+    3.ver atributos
+    
+    """))
       if puerta == 1:
           sala3()
       elif puerta ==2:
@@ -113,9 +126,12 @@ def sala4():
       elif puerta ==3:
           mi_personaje.Mostrar_atributos
           
-    elif a>=2:
+    else:
       while True:
-       puerta = int(input("solo hay una puerta a la izquierda, 1.entrar 2.usar inventario 3.ver atributos"))
+       puerta = int(input("""solo hay una puerta a la izquierda:
+                          1.entrar
+                          2.usar inventario
+                          3.ver atributos"""))
        if puerta == 1:
           sala3()
        elif puerta ==2:
