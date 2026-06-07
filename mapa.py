@@ -7,9 +7,7 @@ def creacion_mi_personaje():
 
 
 
-def fin_juego():
-    #futura exepcion para salir del juego
-    print("FIN DE JUEGO")
+
 
 def arranque_juego():
     global lobo_fuego
@@ -67,6 +65,8 @@ def sala2():
      personajes.pelea(mi_personaje,lobo_fuego)
      mi_personaje.inventario["pepitas de oro"] +=1
      mi_personaje.inventario["posion vida"] +=1
+     mi_personaje.subir_nivel()
+     print("has subido de nivel")
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      direncion(sala1,sala3)
@@ -83,6 +83,8 @@ def sala3():
      personajes.pelea(mi_personaje,oso_electrico)
      mi_personaje.inventario["pepitas de oro"] +=1
      mi_personaje.inventario["posion vida"] +=1
+     mi_personaje.subir_nivel()
+     print("has subido de nivel")
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      direncion(sala2,sala4)
@@ -98,6 +100,8 @@ def sala4():
      personajes.pelea(mi_personaje,nicolas_maduro)
      mi_personaje.inventario["pepitas de oro"] +=1
      mi_personaje.inventario["posion vida"] +=1
+     mi_personaje.subir_nivel()
+     print("has subido de nivel")
      print("has obtenido una posion de vida")
      print("has obtenido una pepita de oro")
      while True:
