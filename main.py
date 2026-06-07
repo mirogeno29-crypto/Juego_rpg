@@ -1,14 +1,21 @@
+import mapa
+import exepciones
+import time
+import os
 
 
 while True:
- jugar = int(input(("""Bienvenido al juego que humilla a GTA 5, Elden Ring y Red Dead Redemption 2, entre otros:
-
-1. Jugar
-2. No, gracias\n
-""")))
+ try:
+  os.system("cls")   
+  print("hola bienvenido a la segunda version del juego mas chafa que te puedas imaginar")
+  jugar = int(input("¿quieres jugar? 1.si  2.no: "))
  
- if jugar == 1:
-     import mapa
-     mapa.sala1()
- elif jugar == 2:
-     break
+  if jugar == 1:
+      mapa.arranque_juego()
+      
+  elif jugar == 2:
+      print("entiendo que no quieras ¿quien querria?")
+      break
+ except exepciones.muertejugador:
+      print("reinicio de partida")
+      time.sleep(4)

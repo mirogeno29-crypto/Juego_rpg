@@ -1,0 +1,2 @@
+class  muertejugador(Exception):
+    pass 
